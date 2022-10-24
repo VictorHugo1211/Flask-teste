@@ -7,5 +7,5 @@ COPY . ./
 # Install dependencies
 RUN pip install -r requirements.txt
 
-ENTRYPOINT ["python3", "main.py"]
+CMD ["gunicorn", "-w 10", "-b", "0.0.0.0:8000", "main:app"]
 
